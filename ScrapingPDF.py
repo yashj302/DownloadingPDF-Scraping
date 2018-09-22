@@ -18,7 +18,8 @@ list_name = list()
 for tag in tags:
     print(tag)
     if(re.findall('\.pdf$',str(tag.get('href',None)))):
-        #list_site.append('https://doc.lagout.org/programmation/python/'+str(tag.get('href',None))) You can try this line for testing just
+        #list_site.append('https://doc.lagout.org/programmation/python/'+str(tag.get('href',None)))
+        # You can try above line for testing just comment out line below
         list_site.append(str(tag.get('href',None)))  # Comment out this line if you are testing with above line
         list_name.append(tag.contents[0])
 var=""
