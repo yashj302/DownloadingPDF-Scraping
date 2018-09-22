@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import ssl
 import requests
 import re
+
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
@@ -25,7 +26,6 @@ for tag in tags:
         list_site.append(str(tag.get('href',None)))  # Comment out this line if you are testing with above line
         list_name.append(tag.contents[0])
 var=""
-#print(list_name)
 count = int(1)
 for l,n in zip(list_site,list_name):
     var = pwd+n
