@@ -10,7 +10,6 @@ ctx.verify_mode = ssl.CERT_NONE
 
 url = input("Enter URL you want to scrap:- ")  
 # For Testing enter https://doc.lagout.org/programmation/python/ in url
-# and remove # from line 23 and comment 25th line
 pwd = input("Enter where to store : Example:'/home/yash/' include forward slahes too: ")
 html = urllib.request.urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html,'html.parser')
@@ -21,9 +20,8 @@ list_name = list()
 for tag in tags:
     print(tag)
     if(re.findall('\.pdf$',str(tag.get('href',None)))):
-        #list_site.append('https://doc.lagout.org/programmation/python/'+str(tag.get('href',None)))
-        # You can try above line for testing just comment out line below
-        list_site.append(str(tag.get('href',None)))  # Comment out this line if you are testing with above line
+        list_site.append(url+str(tag.get('href',None)))
+        #list_site.append(str(tag.get('href',None)))  # If above line is not working comment it out and remove # from this line..
         list_name.append(tag.contents[0])
 var=""
 count = int(1)
